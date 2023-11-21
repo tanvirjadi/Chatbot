@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chatbot</title>
+    <style>
+    body, h1, p, input, button {
+        margin: 10px;
+        margin-top: 50px;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Chat container styles */
+    .chat-container {
+        max-width: 400px;
+        margin: 50px auto;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    /* Chat display styles */
+    #chat-display {
+        height: 300px;
+        padding: 10px;
+        overflow-y: scroll;
+    }
+
+    /* Chat input styles */
+    .chat-input {
+        display: flex;
+        padding: 10px;
+    }
+
+    input {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 8px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+    
+    .user-message, .bot-message {
+        margin-bottom: 8px;
+        color: blue;
+        margin: 10px;
+        margin-left: 20px;
+    }
+
+    .bot-message {
+        color: green;
+    }
+
+    h1 {
+        color: black;
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 0;
+    }
+    </style>
+</head>
+<body>
+    <H1>Simple Chatbot</H1>
+    <p>Hello Everyone! Do you need help? I'm here to assist.</p>
+    <div class="chat-container">
+        <div id="chat-display"></div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Message Bot...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+    var userInput = document.getElementById("user-input").value;
+
+    // User message display
+    var userMessageDiv = document.createElement("div");
+    userMessageDiv.className = "user-message";
+    userMessageDiv.textContent = "You: " + userInput;
+    document.getElementById("chat-display").appendChild(userMessageDiv);
+
+    // Bot response based on user input
+    var botMessage = generateBotResponse(userInput);
+
+    var botMessageDiv = document.createElement("div");
+    botMessageDiv.className = "bot-message";
+    botMessageDiv.textContent = "Bot: " + botMessage;
+    document.getElementById("chat-display").appendChild(botMessageDiv);
+
+    // Clear user input
+    document.getElementById("user-input").value = "";
+
+    // Scroll to the bottom of the chat display
+    document.getElementById("chat-display").scrollTop = document.getElementById("chat-display").scrollHeight;
+}
+
+function generateBotResponse(userInput) {
+    // Example: If user asks about the weather
+    if (userInput.toLowerCase().includes("weather")) {
+        return "I'm sorry, I don't have real-time weather information. You can check a weather website or app for the latest updates.";
+    }
+
+    if (userInput.toLowerCase().includes("tell")) {
+        return "Ok, I have some information about it.";
+    }
+
+    if (userInput.toLowerCase().includes("yes")) {
+        return "Thank you for find me good! I'm here to assist you, so if you have any questions or if there's anything else you'd like to discuss, feel free to let me know. I'm here to help!";
+    }
+
+    if (userInput.toLowerCase().includes("thankyou")) {
+        return "Welcome! I'mhere to assist you.";
+    }
+
+    
+    if (userInput.toLowerCase().includes("thanks")) {
+        return "Welcome! I'mhere to assist you.";
+    }
+
+    if (userInput.toLowerCase().includes("no")) {
+        return "I'm sorry to hear that you feel that way. If there's something specific you're unhappy with or if you have any feedback, please let me know. I'm here to help and improve your experience.";
+    }
+
+    if (userInput.toLowerCase().includes("find")) {
+        return "Thank you for letting us know. Your feedback is valuable, and I appreciate your input.";
+    }
+
+    
+    if (userInput.toLowerCase().includes("best")) {
+        return "Thank you for letting us know. Your feedback is valuable, and I appreciate your input.";
+    }
+
+    
+    if (userInput.toLowerCase().includes("good")) {
+        return "Thank you for letting us know. Your feedback is valuable, and I appreciate your input.";
+    }
+
+    
+    if (userInput.toLowerCase().includes("easy")) {
+        return "Thank you for letting us know. Your feedback is valuable, and I appreciate your input.";
+    }
+
+    if (userInput.toLowerCase().includes("difficult")) {
+        return "Thank you for your feedback, your feedback is valuable, We'll work on improving the navigation to enhance your experience"
+    }
+    // Example: If user mentions "help"
+    if (userInput.toLowerCase().includes("help")) {
+        return "Sure, I'm here to help! What do you need assistance with?";
+    }
+
+    // Add more conditions based on user input
+
+    // Default response if no specific condition is met
+    return "I'm sorry, I didn't understand that. How can I assist you?";
+}
+
+    </script>
+</body>
+</html>
